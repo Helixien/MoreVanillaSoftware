@@ -1,0 +1,16 @@
+-start(pre)
+-pre(base)
+Dlex
+Nodi
+Semby
+Owny
+Fusion
+Infusion
+Medis
+My
+Nero
+VideoSoft
+Servito
+Universal
+-base (stop)
+Media Server

@@ -21,7 +21,7 @@ Cell
 Universal
 -base(base2)
  Media
--base2(stop)
+-base2(ext,stop)
  Player
 -ext(stop)
  Pro

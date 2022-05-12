@@ -2,14 +2,14 @@ SoftwareType
 	{
 	Name			"OS Optimizer"
 	Description		"A utility programm to clean and optimizer your OS"
-	Random			0.8
-	Popularity		0.5
-	Retention		92
-	IdealPrice		10
-	OptimalDevTime	20
+	Random			0.4
+	Popularity		0.6
+	Retention		28
+	IdealPrice		50
+	OptimalDevTime	30
 	Unlock			1990
-	SubmarketNames	[ Simplicity; "Usability"; "Impact" ]
-	Iterative		0.3
+	SubmarketNames	[ "Usability"; "Monitoring"; "Impact" ]
+	Iterative		0.4
 	NameGenerator	MVS_OSOptimizer
 	OSSupport		[ Computer; Phone]
 	InHouse			False
@@ -18,7 +18,8 @@ SoftwareType
 			{
 			Name		System
 			Spec		System
-			DevTime		4
+			Description "Help your system to deal with trash"
+			DevTime		2
 			CodeArt		1
 			Submarkets	[ 1; 1; 1 ]
 			Features
@@ -29,7 +30,7 @@ SoftwareType
 					DevTime		2
 					Level		1
 					CodeArt		0
-					Submarkets	[ 0; 1; 1 ]
+					Submarkets	[ 1; 0; 1 ]
 					}
 					{
 					Name		"Duplicate finder"
@@ -37,15 +38,15 @@ SoftwareType
 					DevTime		2
 					Level		1
 					CodeArt		0
-					Submarkets	[ 1; 1; 0 ]
+					Submarkets	[ 1; 0; 0 ]
 					}
 					{
 					Name		"Registry cleaner"
 					Description	"Control the level of compression used"
-					DevTime		3
+					DevTime		5
 					Level		1
 					CodeArt		1
-					Submarkets	[ 0; 1; 1 ]
+					Submarkets	[ 1; 0; 1 ]
 					}
 					{
 					Name		"System health monitoring"
@@ -53,7 +54,7 @@ SoftwareType
 					DevTime		2
 					Level		2
 					CodeArt		1
-					Submarkets	[ 1; 1; 1 ]
+					Submarkets	[ 0; 2; 0 ]
 					}
 					{
 					Name		"Bloatware remover"
@@ -62,7 +63,7 @@ SoftwareType
 					DevTime		2
 					Level		2
 					CodeArt		1
-					Submarkets	[ 0; 1; 1 ]
+					Submarkets	[ 1; 0; 0 ]
 					}
 				    {
 					Name		"Secure erase"
@@ -70,20 +71,21 @@ SoftwareType
 					DevTime     2
 					Level       3
 					CodeArt     1
-					Submarkets  [ 1; 1; 1 ]
+					Submarkets  [ 1; 0; 0 ]
 					}
 				    {
 					Name		"Disk analyser"
 					Description "Check on the health and usage of drivers"
-					DevTime     4
+					DevTime     3
 					Level       3
 					CodeArt     1
-					Submarkets  [ 0; 2; 0 ]
+					Submarkets  [ 1; 1; 0 ]
 					}
 				]
 			}
 			{
 			Name		Interface
+			Description "Adds more usabiliy for users"
 			Spec		2D
 			DevTime		2
 			CodeArt		0.5
@@ -93,10 +95,10 @@ SoftwareType
 					{
 					Name		"Advanced interface"
 					Description	"Makes it easier to use"
-					DevTime		4
+					DevTime		3
 					Level		1
 					CodeArt		0.5
-					Submarkets	[ 1; 4; 0 ]
+					Submarkets	[ 1; 0; 0 ]
 					}
 					{
 					Name		"Notifications"
@@ -104,29 +106,58 @@ SoftwareType
 					DevTime		2
 					Level		1
 					CodeArt		0.8
-					Submarkets	[ 2; 0; 0 ]
+					Submarkets	[ 1; 1; 0 ]
 					}
 				]
 			}
 			{
-			Name			Network
+			Name			Networking
 			Spec			Network
 			Description		"Make use of the world wide web"
 			Optional		True
 			Unlock			1990
 			DevTime			3
 			CodeArt			1
-			Submarkets		[ 0; 1; 0 ]
+			Submarkets		[ 1; 0; 0 ]
 			Features
 				[
 					{
 					Name		"Driver updater"
-					Description "Update the systems drivers"
+					Description "Checks if drivers are up to date"
 					DevTime		3
 					Level		1
 					CodeArt		1
+					Server		0.0002
+					Submarkets	[ 0; 1; 1 ]
+					}
+					{
+					Name		"Software updater"
+					Description "Checks if software are up to date"
+					DevTime		2
+					Level		1
+					CodeArt		1
 					Server		0.0001
-					Submarkets	[ 1; 1; 1 ]
+					Submarkets	[ 0; 1; 0 ]
+					}
+					{
+					Name		"Integrated Ads"
+					Description	"Show ads to the user and get a profit cut of {Currency:0.05}"
+					Server		0.0001
+					DevTime		2
+					Level		3
+					CodeArt		1
+					Submarkets	0
+					Script_EndOfDay
+					"if (Product.GetVar(\"Integrated Ads\", true))
+						{
+							var extra = Product.Userbase * 0.05;
+							Product.DevCompany.MakeTransaction(extra, Sales, \"Integrated Ads\");
+							Product.AddToCashflow(0, 0, 0, extra, 0, Time);
+							if (Random() * Product.Userbase > 50000)
+							{
+								Product.Userbase = Product.Userbase * 0.95;
+							}
+						}"
 					}
 				]
 			}

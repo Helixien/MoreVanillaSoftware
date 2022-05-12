@@ -1,0 +1,164 @@
+SoftwareType
+	{
+	Name			"Media Server"
+	Description		"Allows the user to host their own media and access it"
+	Random			0.4
+	Popularity		0.2
+	Retention		92
+	IdealPrice		70
+	OptimalDevTime	50
+	Unlock			2005
+	SubmarketNames	[ Simplicity; "Usability"; "Performance" ]
+	Iterative		0.3
+	NameGenerator	MVS_MediaServer
+	OSSupport		Computer
+	InHouse			False
+	Features
+		[
+			{
+			Name		System
+			Spec		System
+			DevTime		6
+			CodeArt		1
+			Submarkets	[ 1; 1; 1 ]
+			Features
+				[
+					{
+					Name		"Codec support"
+					Description	"Support for more common media codecs"
+					DevTime		4
+					Level		1
+					CodeArt		0
+					Submarkets	[ 0; 1; 1 ]
+					}
+					{
+					Name		"Media Scanner"
+					Description	"Scan for new media files"
+					DevTime		2
+					Level		1
+					CodeArt		0
+					Submarkets	[ 1; 1; 0 ]
+					}
+					{
+					Name		"Advanced libraries"
+					Description	"Makes libraries more useful by giving them more functions"
+					DevTime		3
+					Level		2
+					CodeArt		1
+					Submarkets	[ 1; 1; 1 ]
+					}
+					{
+					Name		"User accounts"
+					Description	"Make accounts for different users and restrict their access"
+					DevTime		2
+					Level		2
+					CodeArt		1
+					Submarkets	[ 1; 2; 0 ]
+					}
+					{
+					Name		"Custom Plugins"
+					Description	"Allows users to make their own addons"
+					DevTime		4
+					Level		2
+					CodeArt		1
+					Submarkets	[ 0; 1; 0 ]
+					}
+					{
+					Name		"Integrated media player"
+					Description	"Comes with its own media player by default"
+					DevTime		4
+					Level		2
+					CodeArt		1
+					Dependencies "Media Player"
+					Submarkets	[ 2; 1; 1 ]
+					}
+					{
+					Name		"Integrated protection"
+					Description	"Protects the users media collection against external attacks"
+					DevTime		2
+					Level		3
+					CodeArt		1
+					Submarkets	[ 0; 1; 2 ]
+					}
+				]
+			}
+			{
+			Name		Interface
+			Spec		2D
+			DevTime		2
+			CodeArt		0.5
+			Submarkets	[ 1; 1; 0 ]
+			Features
+				[
+					{
+					Name		"Advanced user interface"
+					Description	"Improves the users experience"
+					DevTime		4
+					Level		1
+					CodeArt		0.3
+					Submarkets	[ 1; 3; 0 ]
+					}
+					{
+					Name		"Advanced admin interface"
+					Description	"More acess to data for server admins"
+					DevTime		5
+					Level		3
+					CodeArt		0.7
+					Submarkets	[ 0; 2; 0 ]
+					}
+				]
+			}
+			{
+			Name			Network
+			Spec			Network
+			Description		"Required for this kind of software"
+			DevTime			9
+			CodeArt			1
+			Submarkets		[ 0; 1; 0 ]
+			Features
+				[
+					{
+					Name		"Automatic Metadate"
+					Description "Use third-party databases for metadata"
+					DevTime		5
+					Level		1
+					CodeArt		1
+					Submarkets	[ 2; 2; 1 ]
+					}
+					{
+					Name		"Remote Access"
+					Description "Allows the user to access the servers content remotely"
+					DevTime		4
+					Level		2
+					CodeArt		1
+					Submarkets	[ 1; 2; 0 ]
+					}
+					{
+					Name		"Datamining"
+					Description	"Sell your users' data to make an extra {Currency:0.10} per active user, at the risk of getting caught"
+					Server		0.0003
+					DevTime		4
+					Level		3
+					CodeArt		1
+					Submarkets	0
+					Script_EndOfDay
+					"if (Product.GetVar(\"Datamining\", true))//Check if player has been caught
+						{
+							var extra = Product.Userbase * 0.10;//Calculate extra income
+							Product.DevCompany.MakeTransaction(extra, Sales, \"Datamining\");
+							Product.AddToCashflow(0, 0, 0, extra, 0, Time);
+							if (Random() * Product.Userbase > 15000)
+							{
+								LaunchLawsuit(\"SpyingOnUsers\", Product.Sum, 1);
+								Product.DevCompany.AddFans(-Product.Userbase, Product.Category);
+								Product.Userbase = Product.Userbase * 0.05;
+								Product.KillAwareness();//Remove all marketing
+								Product.PutVar(\"Datamining\", false);
+								AddPopup(Localize(\"SurveillanceNotification\", Product.Name), 1, \"Exclamation\", Issue);//Add notification in top left corner
+							}
+						}"
+					}
+				]
+			}
+		]
+	}

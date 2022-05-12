@@ -2,13 +2,13 @@ SoftwareType
 	{
 	Name			"File archiver"
 	Description		"A utility programm to place groups of files within compressed containers known as archives"
-	Random			0.5
-	Popularity		0.2
-	Retention		92
-	IdealPrice		20
+	Random			0.4
+	Popularity		0.4
+	Retention		20
+	IdealPrice		50
 	OptimalDevTime	20
 	SubmarketNames	[ Simplicity; Security; "Compression" ]
-	Iterative		0.2
+	Iterative		0.5
 	NameGenerator	MVS_FileArchiver
 	OSSupport		[ Computer; Phone]
 	InHouse			False
@@ -17,7 +17,8 @@ SoftwareType
 			{
 			Name		System
 			Spec		System
-			DevTime		6
+			Description "Makes many files into one and the other way around"
+			DevTime		2
 			CodeArt		1
 			Submarkets	[ 1; 1; 1 ]
 			Features
@@ -28,15 +29,15 @@ SoftwareType
 					DevTime		4
 					Level		1
 					CodeArt		0
-					Submarkets	[ 1; 0; 1 ]
+					Submarkets	[ 0; 0; 1 ]
 					}
 					{
 					Name		"Third-Party formats"
 					Description	"Support for different archive formats"
-					DevTime		3
+					DevTime		2
 					Level		1
 					CodeArt		0
-					Submarkets	[ 1; 0; 0 ]
+					Submarkets	[ 1; 0; 1 ]
 					}
 					{
 					Name		"Passwort protection"
@@ -49,7 +50,7 @@ SoftwareType
 					{
 					Name		"Compression settings"
 					Description	"Control the level of compression used"
-					DevTime		3
+					DevTime		2
 					Level		2
 					CodeArt		1
 					Submarkets	[ 1; 0; 1 ]
@@ -57,16 +58,18 @@ SoftwareType
 				    {
 					Name		"File encryption"
 					Description "Encryption archives for extra security"
-					DevTime     4
-					Level       3
+					DevTime     2
+					Level       1
 					CodeArt     1
-					Submarkets  [ 0; 4; 0 ]
+					Submarkets  [ 0; 2; 0 ]
 					}
 				]
 			}
 			{
 			Name		Interface
 			Spec		2D
+			Description "Adds more usabiliy for users"
+			Optional	True
 			DevTime		2
 			CodeArt		0.5
 			Submarkets	[ 1; 1; 0 ]
