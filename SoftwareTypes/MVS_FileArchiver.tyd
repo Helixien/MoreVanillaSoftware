@@ -1,7 +1,7 @@
 SoftwareType
 	{
 	Name			"File archiver"
-	Description		"A utility programm to place groups of files within compressed containers known as "archives""
+	Description		"A utility programm to place groups of files within compressed containers known as archives"
 	Random			0.5
 	Popularity		0.2
 	Retention		92

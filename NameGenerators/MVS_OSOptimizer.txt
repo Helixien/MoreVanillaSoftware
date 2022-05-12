@@ -1,0 +1,27 @@
+-start(pre)
+-pre(base)
+C
+X
+Y
+My
+Extreme
+Ergo
+Power
+System
+OS
+Speed
+Conflict
+Smart
+-base(ext)
+ Cleaner
+ Booster
+ Improver
+ Optimizer
+ Tune
+ Repair
+ CleanUp
+ Restore
+-ext(stop)
+ Pro
+ Max
+ Premium
