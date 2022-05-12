@@ -1,0 +1,125 @@
+SoftwareType
+	{
+	Name			"Media Player"
+	Description		"Program that handles the playback of media"
+	Random			0.3
+	Popularity		0.5
+	Retention		82
+	IdealPrice		40
+	OptimalDevTime	30
+	Unlock			1988
+	SubmarketNames	[ Simplicity; "Usability"; "Performance" ]
+	Iterative		0.4
+	NameGenerator	MVS_MediaPlayer
+	OSSupport		[ Computer; Phone; Console ]
+	InHouse			False
+	Features
+		[
+			{
+			Name		System
+			Spec		System
+			DevTime		4
+			CodeArt		1
+			Submarkets	[ 1; 1; 1 ]
+			Features
+				[
+					{
+					Name		"Video codec support"
+					Description	"Adds support for video codecs"
+					DevTime		3
+					Level		1
+					CodeArt		0
+					Submarkets	[ 0; 1; 0 ]
+					}
+					{
+					Name		"Audio codec support"
+					Description	"Adds support for audio codecs"
+					DevTime		2
+					Level		1
+					CodeArt		0
+					Submarkets	[ 0; 1; 0 ]
+					}
+					{
+					Name		"Multi-Playback"
+					Description	"Play multiple files at once"
+					DevTime		5
+					Level		2
+					CodeArt		1
+					Unlock		1990
+					Submarkets	[ 1; 1; 0 ]
+					}
+					{
+					Name		"Playback position"
+					Description	"Remembers where you stopped watching the last time"
+					DevTime		5
+					Level		3
+					CodeArt		1
+					Submarkets	[ 0; 1; 0 ]
+					}
+				    {
+					Name		"Hardware acceleration"
+					Description "Allows GPUs to boost video decoding speed"
+					DevTime     6
+					Level       3
+					CodeArt     1
+					Unlock		2000
+					Submarkets  [ 0; 1; 4 ]
+					}
+				]
+			}
+			{
+			Name		Interface
+			Spec		2D
+			DevTime		3
+			CodeArt		0.5
+			Submarkets	[ 1; 1; 0 ]
+			Features
+				[
+					{
+					Name		"Themes"
+					Description	"Different looks for different tastes"
+					DevTime		2
+					Level		1
+					CodeArt		0.5
+					Submarkets	[ 1; 0; 0 ]
+					}
+					{
+					Name		"Subtitles"
+					Description	"Allows the use of subtitles with videos"
+					DevTime		4
+					Level		2
+					CodeArt		0.8
+					Submarkets	[ 0; 1; 0 ]
+					}
+					{
+					Name		"Advanced Intferface"
+					Description	"More control for the user"
+					DevTime		4
+					Level		3
+					CodeArt		0.5
+					Submarkets	[ 1; 1; 0 ]
+					}
+				]
+			}
+			{
+			Name		Audio
+			Spec		Audio
+			DevTime		2
+			CodeArt		1
+			Optional	True
+			Submarkets	[ 1; 0; 1 ]
+			Dependencies	"Audio Tool"
+			Features
+				[
+					{
+					Name		"Live subtitle generation"
+					Description "Generate subtitles for videos on the go"
+					DevTime		10
+					Level		3
+					CodeArt		1
+					Submarkets	[ 2; 2; 0 ]
+					}
+				]
+			}
+		]
+	}

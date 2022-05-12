@@ -1,0 +1,28 @@
+-start(pre)
+-pre(base)
+SM
+MP
+VLK
+VLN
+XD
+Premium
+Power
+DivY
+DivZ
+Vision
+Kody
+All
+Real
+Wine
+Extreme
+My
+Digital
+Cell
+Universal
+-base(base2)
+ Media
+-base2(stop)
+ Player
+-ext(stop)
+ Pro
+ Max

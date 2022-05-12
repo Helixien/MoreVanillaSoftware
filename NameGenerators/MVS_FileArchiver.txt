@@ -1,0 +1,27 @@
+-start(pre)
+-pre(base)
+5
+6
+7
+8
+9
+X
+Y
+Z
+Sin
+Compress
+Opti
+Power
+File
+All
+Hot
+Ergo
+Eco
+My
+-base(ext)
+ Archiver
+ Zip
+ Rar
+-ext(stop)
+ Pro
+ Max
